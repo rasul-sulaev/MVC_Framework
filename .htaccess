@@ -1,0 +1,9 @@
+AddDefaultCharset utf-8
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+RewriteRule ^ [L,NE,R=302]
+RewriteRule ^((?!index.php).*)$ index.php/$1 [L,NC]
